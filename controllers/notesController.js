@@ -55,7 +55,7 @@ const getNoteByID = async (req, res) => {
             message: "Note retrieving successfully",
             data: note
         });
-    } catch {
+    } catch (error){
         res.status(500).json({
             status: false,
             message: "Error retrieving note",
@@ -84,7 +84,7 @@ const updateNote = async (req, res) => {
             message: "Note updated successfully",
             data: updatedNote
         });
-    } catch {
+    } catch (error){
         res.status(500).json({
             status: false,
             message: "Error updating note",
@@ -112,7 +112,7 @@ const deleteNote = async (req, res) => {
             message: "Note deleted successfully",
             data: note
         });
-    } catch {
+    } catch (error){
         res.status(500).json({
             status: false,
             message: "Error deleting note",

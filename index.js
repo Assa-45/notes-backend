@@ -16,15 +16,8 @@ app.get("/", (req, res) => {
 require("./schema/notes");
 app.use("/api/v1/notes", noteRoutes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 sequelize.sync().then(() => {
-    console.log("Database ready");
-    app.listen(port, "0.0.0.0", () => {
-      console.log(`Server running on port ${port}`);
-    });
-  })
-  .catch((err) => {
-    console.error("DB SYNC ERROR:");
-    console.error(err);
-    process.exit(1);
-  });
+  console.log("Database synced");
+  app.listen(port, () => console.log(`Server running on port ${port}`));
+});
